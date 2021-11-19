@@ -1,52 +1,73 @@
 body {
-    margin: 0;
-    background-color: rgb(208, 255, 239);
+  margin: 0;
+  background-color: tomato;
 }
 
 .main-game {
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .genius {
-    display: grid;
-    grid-template-areas: 'verde vermelho'
-    'amarelo azul';
-    grid-gap: 10px;
-    border: 1px solid #ffffff;
-    background-color: #ffffff;
-    border-radius: 100%;
-    width: 700px;
-    height: 700px;
+  display: grid;
+  grid-template-areas:
+    "verde vermelho"
+    "amarelo azul";
+  grid-gap: 5vmin;
+  background-color: black;
+  border: 1.6vmin solid #555;
+  border-radius: 50%;
+  padding: 5vmin;
+  width: 75vmin;
+  height: 75vmin;
+  position: relative;
+  box-shadow: 4px 5px 12px 13px rgb(0 0 0 / 20%);
 }
 
-.blue {
-    grid-area: azul;
-    background-color: blue;
-    border-bottom-right-radius: 100%;
+.genius::after {
+  content: "";
+  width: 20vmin;
+  height: 20vmin;
+  background-color: #bbb;
+  border: 3vmin solid;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.red {
-    grid-area: vermelho;
-    background-color: red;
-    border-top-right-radius: 100%;
+.button {
+  border-radius: 1vmin;
 }
 
-.yellow {
-    grid-area: amarelo;
-    background-color: yellow;
-    border-bottom-left-radius: 100%;
+.button.blue {
+  grid-area: azul;
+  background-color: #2BDAFE;
+  border-bottom-right-radius: 100%;
 }
 
-.green {
-    grid-area: verde;
-    background-color: green;
-    border-top-left-radius: 100%;
+.button.red {
+  grid-area: vermelho;
+  background-color: red;
+  border-top-right-radius: 100%;
 }
 
-.selected {
-    opacity: 0.8;
+.button.yellow {
+  grid-area: amarelo;
+  background-color: yellow;
+  border-bottom-left-radius: 100%;
+}
+
+.button.green {
+  grid-area: verde;
+  background-color: #5AF69A;
+  border-top-left-radius: 100%;
+}
+
+.button.selected {
+  background-color: white;
 }
