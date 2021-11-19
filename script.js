@@ -1,6 +1,7 @@
 let order = [];
 let clickedOrder = [];
 let score = 0;
+let playerTurn = false;
 
 //0 - verde
 //1 - vermelho
@@ -26,8 +27,8 @@ let shuffleOrder = () => {
 
 //acende a proxima cor
 let lightColor = (element, number) => {
-  const time = number * 2000 + 1000;
-  const interval = 1000;
+  const time = number * 1000 + 1000;
+  const interval = 500;
 
   setTimeout(() => {
     element.classList.add("selected");
@@ -35,6 +36,9 @@ let lightColor = (element, number) => {
 
   setTimeout(() => {
     element.classList.remove("selected");
+    if ((number + 1) === order.length) {
+      playerTurn = true;
+    }
   }, time + interval);
 };
 
@@ -54,6 +58,8 @@ let checkOrder = () => {
 
 //funcao para o clique do usuario
 let click = (color) => {
+  if (!playerTurn) return;
+
   clickedOrder[clickedOrder.length] = color;
   createColorElement(color).classList.add("selected");
 
@@ -65,20 +71,22 @@ let click = (color) => {
 
 //funcao que retorna a cor
 let createColorElement = (color) => {
-  if (color == 0) {
-    return green;
-  } else if (color == 1) {
-    return red;
-  } else if (color == 2) {
-    return yellow;
-  } else if (color == 3) {
-    return blue;
+  switch (color) {
+    case 0:
+      return green;
+    case 1:
+      return red;
+    case 2:
+      return yellow;
+    case 3:
+      return blue;
   }
 };
 
 //funcao para proximo nivel do jogo
 let nextLevel = () => {
   score++;
+  playerTurn = false;
   shuffleOrder();
 };
 
