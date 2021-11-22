@@ -2,6 +2,8 @@
 
 Esse é o repositório (modificado) de uma aula de Javascript, na qual foi feito um simples jogo Genius com apenas algumas linhas de código! 
 
+![screenshot](screenshot.jpg)
+
 ### Os requisitos são:
 
 * [HTML básico](https://www.w3schools.com/html/)
