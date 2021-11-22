@@ -8,6 +8,11 @@ let playerTurn = false;
 //2 - amarelo
 //3 - azul
 
+// elementos DOM
+const modal = document.querySelector('#modal');
+const modalMsg = modal.querySelector('#modalMsg');
+const playBtn = modal.querySelector('#playBtn');
+// cores
 const blue = document.querySelector(".blue");
 const red = document.querySelector(".red");
 const green = document.querySelector(".green");
@@ -47,7 +52,7 @@ let checkOrder = () => {
   for (let i in clickedOrder) {
     if (clickedOrder[i] != order[i]) {
       gameOver();
-      break;
+      return;
     }
   }
   if (clickedOrder.length == order.length) {
@@ -92,20 +97,17 @@ let nextLevel = () => {
 
 //funcao para game over
 let gameOver = () => {
-  alert(
-    `Pontuação: ${score}!\nVocê perdeu o jogo!\nClique em OK para iniciar um novo jogo`
-  );
+  modal.style.display = 'flex';
+  modalMsg.textContent = "You've lost! Don't worry try again." ;
   order = [];
   clickedOrder = [];
-
-  playGame();
 };
 
 //funcao de inicio do jogo
 let playGame = () => {
-  // alert("Bem vindo ao Gênesis! Iniciando novo jogo!");
-  score = 0;
+  modal.style.display = 'none';
 
+  score = 0;
   nextLevel();
 };
 
@@ -116,4 +118,4 @@ yellow.onclick = () => click(2);
 blue.onclick = () => click(3);
 
 //inicio do jogo
-playGame();
+playBtn.onclick = () => playGame();
