@@ -12,6 +12,7 @@ let playerTurn = false;
 const modal = document.querySelector('#modal');
 const modalMsg = modal.querySelector('#modalMsg');
 const playBtn = modal.querySelector('#playBtn');
+const roundNumber = document.querySelector('#roundNumber');
 // cores
 const blue = document.querySelector(".blue");
 const red = document.querySelector(".red");
@@ -91,6 +92,7 @@ let createColorElement = (color) => {
 //funcao para proximo nivel do jogo
 let nextLevel = () => {
   score++;
+  roundNumber.textContent = score;
   playerTurn = false;
   shuffleOrder();
 };
