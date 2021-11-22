@@ -13,6 +13,7 @@ const modal = document.querySelector('#modal');
 const modalMsg = modal.querySelector('#modalMsg');
 const playBtn = modal.querySelector('#playBtn');
 const roundNumber = document.querySelector('#roundNumber');
+const playerTurnEl = document.querySelector('#player');
 // cores
 const blue = document.querySelector(".blue");
 const red = document.querySelector(".red");
@@ -44,6 +45,7 @@ let lightColor = (element, number) => {
     element.classList.remove("selected");
     if ((number + 1) === order.length) {
       playerTurn = true;
+      playerTurnEl.textContent = 'YOU';
     }
   }, time + interval);
 };
@@ -93,6 +95,7 @@ let createColorElement = (color) => {
 let nextLevel = () => {
   score++;
   roundNumber.textContent = score;
+  playerTurnEl.textContent = 'CPU';
   playerTurn = false;
   shuffleOrder();
 };

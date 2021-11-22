@@ -1,3 +1,7 @@
+html, body {
+  height: 100%;
+}
+
 body {
   margin: 0;
   background-color: tomato;
@@ -44,15 +48,31 @@ body {
   opacity: .7;
 }
 
+.title-game {
+  text-align: center;
+  font-size: calc(3vmin + 30px);
+  text-transform: uppercase;
+  margin: 10px 0;
+  color: #111
+}
+
+.title-game span {
+  background-color: #111;
+  color: white;
+}
+
 .main-game {
   max-width: 1200px;
   margin: auto;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .round {
-  font-size: 48px;
+  font-size: calc(1.5vmin + 30px);
   font-weight: 700;
-  letter-spacing: -5px;
+  letter-spacing: -4px;
   color: white;
 }
 
@@ -65,29 +85,33 @@ body {
   grid-template-areas:
     "verde vermelho"
     "amarelo azul";
-  grid-gap: 5vmin;
+  grid-gap: 4.5vmin;
   background-color: black;
-  border: 1.6vmin solid #555;
+  border: 1.5vmin solid #555;
   border-radius: 50%;
-  padding: 5vmin;
-  width: 75vmin;
-  height: 75vmin;
+  padding: 4.5vmin;
+  width: 68vmin;
+  height: 68vmin;
   margin: auto;
   position: relative;
   box-shadow: 4px 5px 12px 13px rgb(0 0 0 / 20%);
 }
 
-.genius::after {
-  content: "";
-  width: 20vmin;
-  height: 20vmin;
+.genius .center-circle {
+  width: 18vmin;
+  height: 18vmin;
   background-color: #bbb;
-  border: 3vmin solid;
+  border: 2.5vmin solid;
   border-radius: 50%;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5vmin;
+  font-weight: 700;
 }
 
 .button {
